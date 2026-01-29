@@ -1,0 +1,172 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #ffffff;
+  color: #1a1a1a;
+}
+
+/* ================= NAVBAR ================= */
+.navbar {
+  background-color: #1c1c1c;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 80px;
+  position: relative;
+}
+
+.navbar nav {
+  width: 33.33%;
+}
+
+.navbar nav:first-child {
+  text-align: left;
+}
+
+.navbar nav:last-child {
+  text-align: right;
+}
+
+.navbar a {
+  color: #f5c518;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* LOGO NE MES */
+.logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.logo img {
+  height: 45px;
+}
+
+/* BUTTON */
+.btn {
+  border: 2px solid #f5c518;
+  padding: 8px 20px;
+  border-radius: 25px;
+  color: #f5c518;
+  font-weight: 600;
+}
+
+/* ================= LOCATION ================= */
+.location-section {
+  background: #e02b1d;
+  color: white;
+  text-align: center;
+  padding: 120px 20px 100px;
+}
+
+.location-section h1 {
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.locations {
+  display: flex;
+  justify-content: center;
+  gap: 120px;
+  margin-top: 70px;
+}
+
+/* ================= LOCATION CARD ================= */
+.location-card {
+  background: transparent; /* heqim kartën e bardhë */
+  color: white;
+  width: 220px;
+  cursor: pointer;
+}
+
+/* rrethi i bardhë me pizza */
+.location-card::before {
+  content: "🍕";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90px;
+  height: 90px;
+  background: white;
+  color: #66b032;
+  border-radius: 50%;
+  margin: 0 auto 25px;
+  font-size: 42px;
+}
+
+.location-card h2 {
+  font-size: 26px;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+.location-card button {
+  background: #66b032;
+  color: white;
+  border: none;
+  padding: 12px 26px;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.location-card button:hover {
+  background: #5aa12f;
+}
+
+/* ================= CITIES ================= */
+#cities {
+  margin-top: 40px;
+  font-size: 22px;
+}
+
+/* ================= ABOUT ================= */
+.about {
+  padding: 100px 20px;
+  text-align: center;
+  background: #ffffff;
+}
+
+.about h2 {
+  font-size: 42px;
+  margin-bottom: 20px;
+  font-weight: 800;
+}
+
+.about p {
+  max-width: 800px;
+  margin: auto;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+/* ================= FOOTER ================= */
+.footer {
+  display: flex;
+  justify-content: space-around;
+  padding: 60px 20px;
+  background: #1c1c1c;
+  color: #cccccc;
+  flex-wrap: wrap;
+}
+
+.footer h3 {
+  color: #f5c518;
+  margin-bottom: 15px;
+}
+
+.footer p {
+  margin-bottom: 8px;
+}
+

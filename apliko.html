@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apliko për Punë | Urban Pizza</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Poppins, sans-serif;
+}
+
+body{
+  background:#f5f5f5;
+  color:#1a1a1a;
+}
+
+/* ===== NAVBAR ===== */
+.navbar{
+  background:#1c1c1c;
+  padding:40px 60px;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.navbar a{
+  color:#f5c518;
+  text-decoration:none;
+  font-weight:600;
+  letter-spacing:1px;
+}
+
+/* LOGO CENTER */
+.logo{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%, -50%);
+}
+
+.logo img{
+  height:120px;
+  cursor:pointer;
+}
+
+/* ===== HEADER TITLE ===== */
+.header-title{
+  background:#e02b1d;
+  color:white;
+  text-align:center;
+  padding:100px 20px;
+}
+
+.header-title h1{
+  font-size:40px;
+}
+
+/* ===== FORM SECTION ===== */
+.form-section{
+  max-width:700px;
+  background:white;
+  margin:60px auto;
+  padding:50px;
+  border-radius:12px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+.form-section h2{
+  text-align:center;
+  margin-bottom:30px;
+  font-size:28px;
+}
+
+.form-group{
+  margin-bottom:20px;
+}
+
+.form-group label{
+  display:block;
+  margin-bottom:8px;
+  font-weight:600;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+  width:100%;
+  padding:12px;
+  border-radius:8px;
+  border:1px solid #ccc;
+  font-size:16px;
+}
+
+.form-group textarea{
+  resize:none;
+  height:120px;
+}
+
+/* ===== BUTTON ===== */
+.submit-btn{
+  width:100%;
+  background:#66b032;
+  color:white;
+  padding:14px;
+  font-size:18px;
+  border:none;
+  border-radius:30px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.submit-btn:hover{
+  background:#5aa12f;
+}
+
+/* ===== FOOTER ===== */
+.footer{
+  background:#1c1c1c;
+  color:#ccc;
+  padding:40px 20px;
+  text-align:center;
+}
+
+.footer a{
+  color:#f5c518;
+  text-decoration:none;
+  font-weight:600;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <a href="index.html">HOME</a>
+
+  <div class="logo">
+    <a href="index.html">
+      <img src="/public/images/logoo.png" alt="Urban Pizza">
+    </a>
+  </div>
+
+  <span></span>
+</header>
+
+<!-- TITLE -->
+<section class="header-title">
+  <h1>Apliko për Punë</h1>
+</section>
+
+<!-- FORM -->
+<section class="form-section">
+  <h2>Plotëso formularin</h2>
+
+  <form>
+    <div class="form-group">
+      <label>Emri dhe Mbiemri</label>
+      <input type="text" required>
+    </div>
+
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" required>
+    </div>
+
+    <div class="form-group">
+      <label>Numri i Telefonit</label>
+      <input type="tel" required>
+    </div>
+
+    <div class="form-group">
+      <label>Pozita</label>
+      <select required>
+        <option value="">Zgjedh pozitën</option>
+        <option>Punëtor Kuzhine</option>
+        <option>Pica Master</option>
+        <option>Kamerier</option>
+        <option>Delivery</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Qyteti</label>
+      <select required>
+        <option value="">Zgjedh qytetin</option>
+        <option>Prishtinë</option>
+        <option>Prizren</option>
+        <option>Ferizaj</option>
+        <option>Gjilan</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Mesazh (opsional)</label>
+      <textarea placeholder="Përvoja, orari, etj."></textarea>
+    </div>
+
+    <button class="submit-btn">Dërgo Aplikimin</button>
+  </form>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>© 2026 Urban Pizza</p>
+  <p><a href="index.html">Kthehu në Home</a></p>
+</footer>
+
+</body>
+</html>

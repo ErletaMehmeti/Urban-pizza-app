@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Urban Pizza – Menu</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<style>
+/* ================= GLOBAL ================= */
+* {
+  box-sizing: border-box;
+}
+
+body{
+  margin:0;
+  font-family: Poppins, sans-serif;
+  background:#f7f7f7;
+  overflow-x: hidden; /* ❗ mos lejo scroll horizontal */
+}
+
+/* ================= NAVBAR ================= */
+.navbar{
+  background:#1c1c1c;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:50px 80px;
+  position:relative;
+}
+
+.navbar nav{
+  width:33.33%;
+}
+
+.navbar nav:first-child{
+  text-align:left;
+}
+
+.navbar nav:last-child{
+  text-align:right;
+}
+
+.navbar a{
+  color:#f5c518;
+  text-decoration:none;
+  font-weight:600;
+  letter-spacing:1px;
+}
+
+/* LOGO */
+.logo{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%, -50%);
+}
+
+.logo img{
+  height:140px;
+}
+
+/* ================= HEADER ================= */
+.header{
+  background:#e02b1d;
+  color:white;
+  padding:30px;
+  text-align:center;
+}
+
+/* ================= TABS ================= */
+.tabs{
+  display:flex;
+  justify-content:center;
+  gap:30px;
+  background:white;
+  padding:15px;
+  position:sticky;
+  top:0;
+  z-index:5;
+}
+
+.tabs button{
+  background:none;
+  border:none;
+  font-weight:700;
+  cursor:pointer;
+  font-size:14px;
+}
+
+.tabs button.active{
+  color:#e02b1d;
+}
+
+/* ================= MENU GRID ================= */
+.menu{
+  display:none;
+  padding:60px 20px; /* ⭐ rregullim kryesor */
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(260px, 1fr));
+  gap:40px;
+}
+
+.menu.active{
+  display:grid;
+}
+
+/* ================= ITEM CARD ================= */
+.item{
+  background:white;
+  padding:25px;
+  border-radius:12px;
+  text-align:center;
+  overflow:hidden; /* ⭐ mbron foton */
+  transition:transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.item:hover{
+  transform:translateY(-6px);
+  box-shadow:0 15px 30px rgba(0,0,0,0.15);
+}
+
+/* IMAGE */
+.item img{
+  width:100%;
+  max-width:240px;
+  transition:transform 0.4s ease;
+}
+
+.item:hover img{
+  transform:scale(1.08) rotate(-1deg);
+}
+
+/* PRICE */
+.price{
+  color:red;
+  font-weight:700;
+  margin-bottom:10px;
+}
+
+/* TITLES */
+.item h3{
+  margin:15px 0 8px;
+}
+
+.item h5{
+  font-weight:400;
+  font-size:14px;
+  color:#555;
+}
+
+/* BUTTON */
+.order{
+  background:#66b032;
+  border:none;
+  color:white;
+  padding:10px 22px;
+  border-radius:25px;
+  cursor:pointer;
+  margin-top:15px;
+  transition:background 0.3s ease, transform 0.2s ease;
+}
+
+.order:hover{
+  background:#5aa52b;
+  transform:scale(1.05);
+}
+
+/* ================= FADE IN ANIMATION ================= */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 0.6s ease forwards;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================= SCROLL OFFSET ================= */
+section {
+  scroll-margin-top: 120px;
+}
+
+#burgers,
+#drinks,
+#pizza,
+#salads,
+#pasta,
+#sandwich,
+#desert,
+#sauces {
+  scroll-margin-top: 160px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px){
+  .navbar{
+    padding:30px 20px;
+  }
+
+  .logo img{
+    height:90px;
+  }
+
+  .tabs{
+    flex-wrap:wrap;
+    gap:15px;
+  }
+}
+
+
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+  <h1>Urban Pizza – Shqiperi</h1>
+</div>
+
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <nav>
+   <a href="index.html#about">ABOUT US</a>
+ </nav>
+
+  <div class="logo">
+    <img src="/public/images/logoo.png" alt="Urban Pizza">
+  </div>
+
+  <nav>
+    <a href="apliko.html">APLIKO PËR PUNË</a>
+  </nav>
+</header>
+
+
+<div class="tabs">
+  <button class="active" onclick="showMenu('pizza', this)">PIZZA</button>
+  <button onclick="showMenu('burgers', this)">BURGERS</button>
+  <button onclick="showMenu('sandwich', this)">SANDWICH</button>
+  <button onclick="showMenu('sauces', this)">SAUCES</button>
+  <button onclick="showMenu('fastfood', this)">FAST n TASTY</button>
+  <button onclick="showMenu('pasta', this)">PASTA & RISOTTO</button>
+  <button onclick="showMenu('salads', this)">SALADS</button>
+  <button onclick="showMenu('desert', this)">DESERT</button>
+  <button onclick="showMenu('drinks', this)">DRINKS</button>
+</div>
+
+<!-- ================= PIZZA ================= -->
+<div id="pizza" class="menu">
+ <div class="item">
+  <div class="price">€2.50 – €15.00
+</div>
+  <img src="/public/images/margarita.png">
+  <h3>Margarita</h3>
+  <h5>sos domatesh, djath kaçkavall</h5>
+  <button class="order" onclick="orderNow('Margarita', 2.50 - 15.00)">
+    ORDER NOW
+  </button>
+</div>
+
+
+  <div class="item">
+    <div class="price">€3.00 – €19.00
+</div>
+    <img src="/public/images/Quattro Foemaggio.png">
+    <h3>Quattro Foemaggio</h3>
+    <h5>sos domatesh, djath kaçkavall, djath mozzarella, djath gorgonzola,krem djath,susam </h5>
+    <button class="order" onclick="orderNow('Quattro Foemaggio',3.00 - 19.00 )">
+    ORDER NOW
+  </button>
+  </div>
+
+  <div class="item">
+    <div class="price">€3.00 – €19.00
+</div>
+    <img src="/public/images/Tuna.png">
+    <h3>Tuna</h3>
+    <h5>sos domatesh, djath kaçkavall, tuna, susam</h5>
+    <button class="order" onclick="orderNow('Tuna',3.00 - 19.00 )">
+    ORDER NOW
+  </button>
+  </div>
+
+  <div class="item">
+    <div class="price">3.00 – €19.00
+</div>
+    <img src="/public/images/Quattro Stagioni.png">
+    <h3>Quattro Stagioni</h3>
+    <h5>sos domatesh, djath kaçkavall, përshutë pule, përshutë viçi, suxhuk, këpurdha</h5>
+  <button class="order" onclick="orderNow('Quattro Stagioni', 3.00 - 19.00)">
+    ORDER NOW
+  </button>
+  </div>
+
+  <div class="item">
+    <div class="price">3.00 – €19.00
+</div>
+    <img src="/public/images/Chicken broccoli.png">
+    <h3>Chicken broccoli</h3>
+    <h5>sos domatesh, djath kaçkavall, susam</h5>
+ <button class="order" onclick="orderNow('Chicken broccoli',  3.00 - 19.00 )">
+    ORDER NOW
+  </button>
+  </div>
+
+  <div class="item">
+    <div class="price">3.00 – €19.00
+</div>
+    <img src="/public/images/broccoli.png">
+    <h3>Broccoli</h3>
+    <h5>sos domatesh, djath kaçkavall, susam</h5>
+   <button class="order" onclick="orderNow('Broccoli',  3.00 - 19.00 )">
+    ORDER NOW
+  </button>
+  </div>
+  
+    <div class="item">
+    <div class="price">3.00 – €19.00
+</div>
+    <img src="/public/images/peperoni.png">
+    <h3>Peperoni</h3>
+    <h5>sos domatesh, djath kaçkavall, suxhuk i tymosur,susam</h5>
+   <button class="order" onclick="orderNow('Peperoni',  3.00 - 19.00)">
+    ORDER NOW
+  </button>
+  </div>
+
+  <div class="item">
+    <div class="price">3.00 – €19.00
+</div>
+    <img src="/public/images/rucola.png">
+    <h3>Rucola</h3>
+    <h5>sos domatesh, djath kaçkavall, susam</h5>
+<button class="order" onclick="orderNow('Rucola', 3.00 - 19.00)">
+    ORDER NOW
+  </button>
+  </div>
+ 
+   <div class="item">
+    <div class="price">3.00 – €19.00
+</div>
+    <img src="/public/images/funghi.png">
+    <h3>Funghi</h3>
+    <h5>sos domatesh, djath kaçkavall,susam</h5>
+    <button class="order" onclick="orderNow('Funghi', 3.00 - 19.00)">
+    ORDER NOW
+  </button>
+  </div>
+
+  <div class="item">
+    <div class="price">3.00 – €19.00
+</div>
+    <img src="/public/images/proshuto.png">
+    <h3>Proshuto</h3>
+    <h5>sos domatesh, djath kaçkavall, susam</h5>
+  <button class="order" onclick="orderNow('Proshuto', 3.00 - 19.00)">
+    ORDER NOW
+  </button>
+  </div>
+
+  <div class="item">
+    <div class="price">3.00 – €19.00
+</div>
+    <img src="/public/images/mediterane.png">
+    <h3>Mediterane</h3>
+    <h5>sos domatesh, djath kaçkavall, susam</h5>
+<button class="order" onclick="orderNow('Mediterane', 3.00 - 19.00)">
+    ORDER NOW
+  </button>
+  </div>
+
+
+</div>
+
+<!-- ================= BURGERS ================= -->
+<div id="burgers" class="menu">
+
+  <div class="item">
+    <div class="price">€4.49</div>
+    <img src="/public/images/urban attack burger.png">
+    <h3>Urban Attack Burger</h3>
+    <h5>
+      Pleskavicë pule, djath amerikan, qepë të fërguara, domate, sos,
+      sallatë e gjelbërt, pomfrit
+    </h5>
+   <button class="order" onclick="orderNow('Urban Attack Burger', 4.49)">
+    ORDER NOW
+  </button>
+  </div>
+
+  <div class="item">
+    <div class="price">€4.49</div>
+    <img src="/public/images/Urban burger me patate.png">
+    <h3>Urban Burger me Patate</h3>
+    <button class="order" onclick="orderNow('Urban Burger me Patate', 4.49)">
+    ORDER NOW
+  </button>
+  </div>
+
+  <div class="item">
+    <div class="price">€4.49</div>
+    <img src="/public/images/Urban burger me french fries.png">
+    <h3>Urban Burger me French Fries</h3>
+   <button class="order" onclick="orderNow('Urban Burger me French Fries', 4.49)">
+    ORDER NOW
+  </button>
+  </div>
+
+  <div class="item">
+    <div class="price">€4.49</div>
+    <img src="/public/images/Cheese.jpg">
+    <h3>Cheeseburger</h3>
+  <button class="order" onclick="orderNow('Cheeseburger', 4.49)">
+    ORDER NOW
+  </button>
+  </div>
+
+</div>
+
+<!-- sandwich -->
+<div id="sandwich" class="menu">
+
+  <div class="item">
+    <div class="price">€3.99
+</div>
+    <img src="/public/images/chicken-crunch.jpg">
+    <h3>Chicken Crunch</h3>
+    <h5>pulë vieneze, sallatë e gjelbërt, domate, tranguj, majonez, djath kaçkavall</h5>
+    <button class="order" onclick="orderNow('Chicken Crunch',3.99)">
+    ORDER NOW
+  </button>
+  </div>
+
+  <div class="item">
+    <div class="price">€4.49</div>
+    <img src="/public/images/club-sandwich.jpg">
+    <h3>Club Sandwich</h3>
+    <h5>bukë tosti, gjeldeti, përshutë viçi, djath kaçkavall, majonez, sallatë e gjelbërt, domate</h5>
+    <button class="order" onclick="orderNow('Club Sandwich', 4.99)">
+    ORDER NOW
+  </button>
+  </div>
+
+   <div class="item">
+    <div class="price">€4.49</div>
+    <img src="/public/images/tuna-melt.jpg">
+    <h3>Sandwich tuna-melt</h3>
+    <button class="order" onclick="orderNow('Sandwich tuna-melt', 4.49)">
+    ORDER NOW
+  </button>
+  </div>
+ 
+     <div class="item">
+    <div class="price">€4.49</div>
+    <img src="/public/images/Chicken Quesadilla.png">
+    <h3>Chiken Quesadilla</h3>
+    <h5>bukë tosti, gjeldeti, përshutë viçi, djath kaçkavall, majonez, sallatë e gjelbërt, domate</h5>
+  <button class="order" onclick="orderNow('Chiken Quesadilla', 4.49)">
+    ORDER NOW
+  </button>
+  </div>
+ 
+    <div class="item">
+    <div class="price">€3.00
+</div>
+    <img src="/public/images/sandwich proshute.png">
+    <h3>Sandwich proshute</h3>
+ <button class="order" onclick="orderNow('Sandwich proshute', 3.00)">
+    ORDER NOW
+  </button>
+  </div>
+ 
+    <div class="item">
+    <div class="price">€3.00
+</div>
+    <img src="/public/images/sandwich mix.png">
+    <h3>Sandwich mix</h3>
+ <button class="order" onclick="orderNow('Sandwich mix', 3.00)">
+    ORDER NOW
+  </button>
+  </div>
+   
+    <div class="item">
+    <div class="price">€3.00
+</div>
+    <img src="/public/images/sandwich-chicken.jpg">
+    <h3>Sandwich chicken</h3>
+<button class="order" onclick="orderNow('Sandwich chicken', 3.00)">
+    ORDER NOW
+  </button>
+  </div>
+
+  <div class="item">
+    <div class="price">€3.00
+</div>
+    <img src="/public/images/sandwich-suxhuk.jpg">
+    <h3>Sandwich Suxhuk</h3>
+ <button class="order" onclick="orderNow('Sandwich Suxhuk', 3.00)">
+    ORDER NOW
+  </button>
+  </div>
+  
+ <div class="item">
+    <div class="price">€3.00
+</div>
+    <img src="/public/images/sandwich-vegetarian.jpg">
+    <h3>Sandwich vegetarian</h3>
+  <button class="order" onclick="orderNow('Sandwich vegetarian', 3.00)">
+    ORDER NOW
+  </button>
+  </div>
+  
+ <div class="item">
+    <div class="price">€2.19
+</div>
+    <img src="/public/images/mini-caprese.jpg">
+    <h3>Mini caprese</h3>
+    <h5>Mozarella, domate, rukolla, salcë pesto</h5>
+ <button class="order" onclick="orderNow('Mini caprese', 2.19)">
+    ORDER NOW
+  </button>
+  </div>
+  
+ <div class="item">
+    <div class="price">€2.19
+</div>
+    <img src="/public/images/mini-parma.jpg">
+    <h3>Mini parma</h3>
+    <h5>Përshutë e tymosur, parmezan, rukolla, krem djath</h5>
+<button class="order" onclick="orderNow('Mini parma', 2.19)">
+    ORDER NOW
+  </button>
+  </div>
+
+   <div class="item">
+    <div class="price">€2.19</div>
+    <img src="/public/images/mini-chicken.jpg">
+    <h3>Mini chicken</h3>
+    <h5>Pulë vieneze, mozarrella, salcë pesto, rukolla, domate, majonez</h5>
+<button class="order" onclick="orderNow('Margarita', 2.50)">
+    ORDER NOW
+  </button>
+  </div>
+
+  <div class="item">
+    <div class="price">€2.19</div>
+    <img src="/public/images/mini-thon.jpg">
+    <h3>Mini thon</h3>
+    <h5>Tuna, kaperi, domate, rukolla, majonez</h5>
+<button class="order" onclick="orderNow('Mini thon', 2.19)">
+    ORDER NOW
+  </button>
+  </div>
+
+
+  <div class="item">
+    <div class="price">€2.19</div>
+    <img src="/public/images/mini-turkey.jpg">
+    <h3>mini turkey</h3>
+  <button class="order" onclick="orderNow('mini turkey', 2.19)">
+    ORDER NOW
+  </button>
+  </div>
+</div> 
+
+
+<!-- ================= SAUCES ================= -->
+<div id="sauces" class="menu">
+  <div class="item">
+    <div class="price">€0.70
+</div>
+    <img src="/public/images/cream-sauce.jpg">
+    <h3>Cream sauce</h3>
+   <button class="order" onclick="orderNow('Cream sauce', 0.70)">
+    ORDER NOW
+  </button>
+  </div>
+  
+  <div class="item">
+    <div class="price">€0.70</div>
+    <img src="/public/images/mexican.jpg">
+    <h3>Mexican</h3>
+   <button class="order" onclick="orderNow('Mexican', 0.70)">
+    ORDER NOW
+  </button>
+  </div>
+
+<div class="item">
+    <div class="price">€0.70</div>
+    <img src="/public/images/mayo.jpg">
+    <h3>Mayo</h3>
+  <button class="order" onclick="orderNow('Mayo', 0.700)">
+    ORDER NOW
+  </button>
+  </div>
+
+<div class="item">
+    <div class="price">€0.70</div>
+    <img src="/public/images/tartar.jpg">
+    <h3>Tartar</h3>
+   <button class="order" onclick="orderNow('Tartar', 0.70)">
+    ORDER NOW
+  </button>
+  </div>
+
+<div class="item">
+    <div class="price">€0.70</div>
+    <img src="/public/images/hot-honey.jpg">
+    <h3>Hot honey</h3>
+   <button class="order" onclick="orderNow('Hot honey', 0.70)">
+    ORDER NOW
+  </button>
+  </div>
+
+  <div class="item">
+    <div class="price">€0.70</div>
+    <img src="/public/images/spitfire-sauce.jpg">
+    <h3>Spitfire sauce</h3>
+<button class="order" onclick="orderNow('Spitfire sauce', 0.70)">
+    ORDER NOW
+  </button>
+  </div>
+
+</div>
+
+
+<!-- fastfood -->
+<div id="fastfood" class="menu">
+  <div class="item">
+    <div class="price">€3.00
+</div>
+    <img src="/public/images/pomfrit.jpg">
+    <h3>Pomfrit</h3>
+  <button class="order" onclick="orderNow('Pomfrit', 3.00)">
+    ORDER NOW
+  </button>
+  </div>
+
+<div class="item">
+    <div class="price">€3.99
+</div>
+    <img src="/public/images/onion-rings.jpg">
+    <h3>Onion rings</h3>
+ <button class="order" onclick="orderNow('Onion rings', 3.99)">
+    ORDER NOW
+  </button>
+  </div>
+
+  <div class="item">
+    <div class="price">€3.99
+</div>
+    <img src="/public/images/chicken fingers.png">
+    <h3>Pomfrit</h3>
+  <button class="order" onclick="orderNow('Pomfrit', 3.99)">
+    ORDER NOW
+  </button>
+  </div>
+
+  <div class="item">
+    <div class="price">€3.99
+</div>
+    <img src="/public/images/potato-wedges.png">
+    <h3>Patato wedges</h3>
+ <button class="order" onclick="orderNow('Patato wedges', 3.99)">
+    ORDER NOW
+  </button>
+  </div>
+</div>
+
+<!-- pasta -->
+<div id="pasta" class="menu">
+  <div class="item">
+    <div class="price">€5.99
+</div>
+    <img src="/public/images/penne bolognese.png">
+    <h3>Penne bolognese</h3>
+    <h5>makarona, sos domatesh,mish i bluar viçi bolonez</h5>
+    <button class="order" onclick="orderNow('Penne bolognese', 5.99)">
+    ORDER NOW
+  </button>
+  </div>
+ 
+  <div class="item">
+    <div class="price">€5.99
+</div>
+    <img src="/public/images/lasagna.png">
+    <h3>Lasagna</h3>
+    <h5>sos domatesh,mish i bluar viçi bolonez,djath</h5>
+    <button class="order" onclick="orderNow('Lasagna', 5.99)">
+    ORDER NOW
+  </button>
+  </div>
+
+  <div class="item">
+    <div class="price">€5.99
+</div>
+    <img src="/public/images/beef.jpg">
+    <h3>Beef linguini</h3>
+    <h5>linguini,mish viçi, këpurdha</h5>
+  <button class="order" onclick="orderNow('Beef linguini', 5.99)">
+    ORDER NOW
+  </button>
+  </div>
+
+<div class="item">
+    <div class="price">€5.99
+</div>
+    <img src="/public/images/risoto-mushroom.jpg">
+    <h3>Risoto mushroom</h3>
+    <h5>Oriz, këpurdha</h5>
+    <button class="order" onclick="orderNow('Risoto mushroom', 5.99)">
+    ORDER NOW
+  </button>
+  </div>
+ 
+  <div class="item">
+    <div class="price">€5.99
+</div>
+    <img src="/public/images/risotto beef.png">
+    <h3>Risoto beef</h3>
+    <h5>Oriz,mish viçi, këpurdha</h5>
+   <button class="order" onclick="orderNow('Risoto beef', 5.99)">
+    ORDER NOW
+  </button>
+  </div>
+
+    <div class="item">
+    <div class="price">€5.99
+</div>
+    <img src="/public/images/rissoto-primavera.jpg">
+    <h3>Risoto primavera</h3>
+    <h5>Oriz,këpurdha, brokoli, karrota</h5>
+  <button class="order" onclick="orderNow('Risoto primavera', 5.99)">
+    ORDER NOW
+  </button>
+  </div>
+
+  <div class="item">
+    <div class="price">€5.99
+</div>
+    <img src="/public/images/risoto veggie.png">
+    <h3>Risoto chicken-veggie</h3>
+    <button class="order" onclick="orderNow('Risoto chicken-veggie', 5.99)">
+    ORDER NOW
+  </button>
+  </div>
+
+  <div class="item">
+    <div class="price">€5.99
+</div>
+    <img src="/public/images/burrito.jpg">
+    <h3>Burrito</h3>
+   <button class="order" onclick="orderNow('Burrito', 5.99)">
+    ORDER NOW
+  </button>
+  </div>
+
+</div>
+
+<!-- sallata -->
+<div id="salads" class="menu">
+  <div class="item">
+    <div class="price">€5.49
+</div>
+    <img src="/public/images/sallat-tuna.jpg">
+    <h3>Sallat tuna</h3>
+  <button class="order" onclick="orderNow('Sallat tuna', 5.49)">
+    ORDER NOW
+  </button>
+  </div>
+
+<div class="item">
+    <div class="price">€5.49
+</div>
+    <img src="/public/images/sallat caprese.png">
+    <h3>Sallat tuna</h3>
+   <button class="order" onclick="orderNow('Sallat tuna', 5.49)">
+    ORDER NOW
+  </button>
+  </div>
+
+<div class="item">
+    <div class="price">€5.49
+</div>
+    <img src="/public/images/sallat-chicken.jpg">
+    <h3>Sallat chicken</h3>
+    <button class="order" onclick="orderNow('Sallat chicken', 5.49)">
+    ORDER NOW
+  </button>
+  </div>
+
+  <div class="item">
+    <div class="price">€5.49
+</div>
+    <img src="/public/images/sallat-mediteriane.jpg">
+    <h3>Sallat mediterane</h3>
+  <button class="order" onclick="orderNow('Sallat mediterane', 5.49)">
+    ORDER NOW
+  </button>
+  </div>
+  
+  <div class="item">
+    <div class="price">€5.49
+</div>
+    <img src="/public/images/sallat-beef.jpg">
+    <h3>Sallat beef</h3>
+  <button class="order" onclick="orderNow('Sallat beef', 5.49)">
+    ORDER NOW
+  </button>
+  </div>
+</div>
+
+
+<!-- desert -->
+<div id="desert" class="menu">
+  <div class="item">
+    <div class="price">€2.50
+</div>
+    <img src="/public/images/banana pudding.png">
+    <h3>Banana pudding</h3>
+<button class="order" onclick="orderNow('Banana pudding', 2.50)">
+    ORDER NOW
+  </button>
+  </div>
+
+    <div class="item">
+    <div class="price">€2.50
+</div>
+    <img src="/public/images/tiramisu.jpg">
+    <h3>Tiramisu</h3>
+   <button class="order" onclick="orderNow('Tiramisu', 2.50)">
+    ORDER NOW
+  </button>
+  </div>
+
+  <div class="item">
+    <div class="price">€3.50
+</div>
+    <img src="/public/images/carrot-cake.jpg">
+    <h3>Carrot cake</h3>
+   <button class="order" onclick="orderNow('Carrot cake', 3.50)">
+    ORDER NOW
+  </button>
+  </div>
+
+  <div class="item">
+    <div class="price">€3.50
+</div>
+    <img src="/public/images/souffle.png">
+    <h3>Souffle</h3>
+   <button class="order" onclick="orderNow('Souffle', 3.50)">
+    ORDER NOW
+  </button>
+  </div>
+
+  <div class="item">
+    <div class="price">€3.00
+</div>
+    <img src="/public/images/american-cheesecake.jpg">
+    <h3>American cheesecake</h3>
+ <button class="order" onclick="orderNow('American cheesecake', 3.00)">
+    ORDER NOW
+  </button>
+  </div>
+
+<div class="item">
+    <div class="price">€3.50
+</div>
+    <img src="/public/images/red.jpg">
+    <h3>Red velvet</h3>
+    <button class="order" onclick="orderNow('Red velvet', 3.50)">
+    ORDER NOW
+  </button>
+  </div>
+
+  <div class="item">
+    <div class="price">€2.50
+</div>
+    <img src="/public/images/Jaffa-Choco-Cake.png">
+    <h3>Jaffa Choco Cake</h3>
+   <button class="order" onclick="orderNow('Jaffa Choco Cake',2.50 )">
+    ORDER NOW
+  </button>
+  </div>
+</div>
+
+
+
+<!-- ================= DRINKS ================= -->
+<div id="drinks" class="menu">
+  <div class="item">
+    <div class="price">€1.50
+</div>
+    <img src="/public/images/coca cola.png">
+    <h3>Coca Cola</h3>
+   <button class="order" onclick="orderNow('Coca Cola',1.50 )">
+    ORDER NOW
+  </button>
+  </div>
+
+<div class="item">
+    <div class="price">€1.50
+</div>
+    <img src="/public/images/fanta.png">
+    <h3>Fanta</h3>
+   <button class="order" onclick="orderNow('Fanta',1.50 )">
+    ORDER NOW
+  </button>
+  </div>
+
+  <div class="item">
+    <div class="price">€1.50
+</div>
+    <img src="/public/images/schweppes.jpg">
+    <h3>Tonic</h3>
+    <button class="order" onclick="orderNow('Tonic', 1.50)">
+    ORDER NOW
+  </button>
+  </div>
+
+ <div class="item">
+    <div class="price">€1.50
+</div>
+    <img src="/public/images/lemon.png">
+    <h3>Schweppes</h3>
+    <button class="order" onclick="orderNow('Schweppes',1.50 )">
+    ORDER NOW
+  </button>
+  </div>
+
+   <div class="item">
+    <div class="price">€1.50
+</div>
+    <img src="/public/images/uje.png">
+    <h3>Ujë</h3>
+<button class="order" onclick="orderNow('Ujë', 1.50)">
+    ORDER NOW
+  </button>
+  </div>
+
+<div class="item">
+    <div class="price">€3.00
+</div>
+    <img src="/public/images/red-bull.jpg">
+    <h3>Red bull</h3>
+<button class="order" onclick="orderNow('Red bull',3.00 )">
+    ORDER NOW
+  </button>
+  </div>
+
+  <div class="item">
+    <div class="price">€1.50
+</div>
+    <img src="/public/images/zero.png">
+    <h3>Cola zero</h3>
+  <button class="order" onclick="orderNow('Cola zero', 1.50)">
+    ORDER NOW
+  </button>
+  </div>
+</div>
+
+
+
+<script>
+/* ================= TABS MENU ================= */
+function showMenu(id, btn) {
+
+  document.querySelectorAll('.menu').forEach(menu => {
+    menu.classList.remove('active');
+  });
+
+  const menu = document.getElementById(id);
+  menu.classList.add('active');
+
+  const offset = document.querySelector('.tabs').offsetHeight + 20;
+  const y = menu.getBoundingClientRect().top + window.pageYOffset - offset;
+
+  window.scrollTo({
+    top: y,
+    behavior: 'smooth'
+  });
+
+  document.querySelectorAll('.tabs button').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+/* ================= ORDER NOW ================= */
+let cart = [];
+
+function orderNow(name, price) {
+  cart.push({ name, price });
+
+  alert(
+    "✅ U shtua në porosi!\n\n" +
+    "🍕 Produkti: " + name + "\n" +
+    "💰 Çmimi: " + price
+  );
+
+  console.log("Cart:", cart);
+}
+</script>
+</body>
+</html>
+
